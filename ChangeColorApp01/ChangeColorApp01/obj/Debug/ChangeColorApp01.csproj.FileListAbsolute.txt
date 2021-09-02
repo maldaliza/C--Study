@@ -1,0 +1,10 @@
+C:\Users\USER\source\repos\C#-Study\ChangeColorApp01\ChangeColorApp01\bin\Debug\ChangeColorApp01.exe.config
+C:\Users\USER\source\repos\C#-Study\ChangeColorApp01\ChangeColorApp01\bin\Debug\ChangeColorApp01.exe
+C:\Users\USER\source\repos\C#-Study\ChangeColorApp01\ChangeColorApp01\bin\Debug\ChangeColorApp01.pdb
+C:\Users\USER\source\repos\C#-Study\ChangeColorApp01\ChangeColorApp01\obj\Debug\ChangeColorApp01.csproj.AssemblyReference.cache
+C:\Users\USER\source\repos\C#-Study\ChangeColorApp01\ChangeColorApp01\obj\Debug\ChangeColorApp01.ChangeColorAppForm.resources
+C:\Users\USER\source\repos\C#-Study\ChangeColorApp01\ChangeColorApp01\obj\Debug\ChangeColorApp01.Properties.Resources.resources
+C:\Users\USER\source\repos\C#-Study\ChangeColorApp01\ChangeColorApp01\obj\Debug\ChangeColorApp01.csproj.GenerateResource.cache
+C:\Users\USER\source\repos\C#-Study\ChangeColorApp01\ChangeColorApp01\obj\Debug\ChangeColorApp01.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\C#-Study\ChangeColorApp01\ChangeColorApp01\obj\Debug\ChangeColorApp01.exe
+C:\Users\USER\source\repos\C#-Study\ChangeColorApp01\ChangeColorApp01\obj\Debug\ChangeColorApp01.pdb
