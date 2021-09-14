@@ -339,6 +339,7 @@ namespace CalculatorApp
             this.button19.TabIndex = 6;
             this.button19.Text = "DEL";
             this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // button18
             // 
@@ -351,6 +352,7 @@ namespace CalculatorApp
             this.button18.TabIndex = 5;
             this.button18.Text = " / ";
             this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // button17
             // 
@@ -363,6 +365,7 @@ namespace CalculatorApp
             this.button17.TabIndex = 4;
             this.button17.Text = " * ";
             this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // button16
             // 
@@ -375,6 +378,7 @@ namespace CalculatorApp
             this.button16.TabIndex = 3;
             this.button16.Text = " - ";
             this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // button15
             // 
@@ -387,6 +391,7 @@ namespace CalculatorApp
             this.button15.TabIndex = 2;
             this.button15.Text = " + ";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // button14
             // 

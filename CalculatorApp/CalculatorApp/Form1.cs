@@ -85,8 +85,63 @@ namespace CalculatorApp
 
         private void button12_Click(object sender, EventArgs e)
         {
-            Button btnEqual = (Button)sender;
-            textBox1.Text += btnEqual.Text;
+            string[] plusSplit = textBox1.Text.Split('+');  // 텍스트박스의 텍스트를 '+'로 Split 합니다.
+
+            double result = 0;
+
+            for (int i=0; i<plusSplit.Length; i++)
+            {
+                string[] minusSplit = plusSplit[i].Split('-');
+                double minusSplitResult = 0;
+
+                for (int j=0; j<minusSplit.Length; j++)
+                {
+                    if (j==0)
+                    {
+                        minusSplitResult += Convert.ToDouble(minusSplit[j]);
+                    }
+                    else
+                    {
+                        minusSplitResult -= Convert.ToDouble(minusSplit[j]);
+                    }
+                }
+                plusSplit[i] = Convert.ToString(minusSplitResult);
+
+                Console.WriteLine(plusSplit[i]);
+                result += Convert.ToDouble(plusSplit[i]);
+            }
+
+            textBox1.Text += Environment.NewLine + Convert.ToString(result);
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            Button btnClear = (Button)sender;
+            textBox1.Text = "";
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            Button btnPlus = (Button)sender;
+            textBox1.Text += btnPlus.Text;
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            Button btnMinus = (Button)sender;
+            textBox1.Text += btnMinus.Text;
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            Button btnMultiple = (Button)sender;
+            textBox1.Text += btnMultiple.Text;
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            Button btnDivide = (Button)sender;
+            textBox1.Text += btnDivide.Text;
         }
     }
 }
