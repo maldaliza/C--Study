@@ -1,0 +1,10 @@
+C:\Users\USER\source\repos\C#-Study\CalculatorApp01\CalculatorApp01\bin\Debug\CalculatorApp01.exe.config
+C:\Users\USER\source\repos\C#-Study\CalculatorApp01\CalculatorApp01\bin\Debug\CalculatorApp01.exe
+C:\Users\USER\source\repos\C#-Study\CalculatorApp01\CalculatorApp01\bin\Debug\CalculatorApp01.pdb
+C:\Users\USER\source\repos\C#-Study\CalculatorApp01\CalculatorApp01\obj\Debug\CalculatorApp01.csproj.AssemblyReference.cache
+C:\Users\USER\source\repos\C#-Study\CalculatorApp01\CalculatorApp01\obj\Debug\CalculatorApp01.Form1.resources
+C:\Users\USER\source\repos\C#-Study\CalculatorApp01\CalculatorApp01\obj\Debug\CalculatorApp01.Properties.Resources.resources
+C:\Users\USER\source\repos\C#-Study\CalculatorApp01\CalculatorApp01\obj\Debug\CalculatorApp01.csproj.GenerateResource.cache
+C:\Users\USER\source\repos\C#-Study\CalculatorApp01\CalculatorApp01\obj\Debug\CalculatorApp01.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\C#-Study\CalculatorApp01\CalculatorApp01\obj\Debug\CalculatorApp01.exe
+C:\Users\USER\source\repos\C#-Study\CalculatorApp01\CalculatorApp01\obj\Debug\CalculatorApp01.pdb
