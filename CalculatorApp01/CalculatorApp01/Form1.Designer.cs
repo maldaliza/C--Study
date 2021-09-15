@@ -51,6 +51,8 @@ namespace CalculatorApp01
             this.multipleButton = new System.Windows.Forms.Button();
             this.divideButton = new System.Windows.Forms.Button();
             this.equalButton = new System.Windows.Forms.Button();
+            this.leftBracket = new System.Windows.Forms.Button();
+            this.rightBracket = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.NumberPanel.SuspendLayout();
@@ -300,6 +302,8 @@ namespace CalculatorApp01
             this.operatorPanel.Controls.Add(this.multipleButton, 0, 1);
             this.operatorPanel.Controls.Add(this.divideButton, 1, 1);
             this.operatorPanel.Controls.Add(this.equalButton, 0, 3);
+            this.operatorPanel.Controls.Add(this.leftBracket, 0, 2);
+            this.operatorPanel.Controls.Add(this.rightBracket, 1, 2);
             this.operatorPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.operatorPanel.Location = new System.Drawing.Point(167, 0);
             this.operatorPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -377,6 +381,32 @@ namespace CalculatorApp01
             this.equalButton.UseVisualStyleBackColor = true;
             this.equalButton.Click += new System.EventHandler(this.equalButton_Click);
             // 
+            // leftBracket
+            // 
+            this.leftBracket.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.leftBracket.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.leftBracket.Location = new System.Drawing.Point(1, 109);
+            this.leftBracket.Margin = new System.Windows.Forms.Padding(0);
+            this.leftBracket.Name = "leftBracket";
+            this.leftBracket.Size = new System.Drawing.Size(54, 53);
+            this.leftBracket.TabIndex = 5;
+            this.leftBracket.Text = "(";
+            this.leftBracket.UseVisualStyleBackColor = true;
+            this.leftBracket.Click += new System.EventHandler(this.leftBracket_Click);
+            // 
+            // rightBracket
+            // 
+            this.rightBracket.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rightBracket.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rightBracket.Location = new System.Drawing.Point(56, 109);
+            this.rightBracket.Margin = new System.Windows.Forms.Padding(0);
+            this.rightBracket.Name = "rightBracket";
+            this.rightBracket.Size = new System.Drawing.Size(54, 53);
+            this.rightBracket.TabIndex = 6;
+            this.rightBracket.Text = ")";
+            this.rightBracket.UseVisualStyleBackColor = true;
+            this.rightBracket.Click += new System.EventHandler(this.rightBracket_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -418,6 +448,8 @@ namespace CalculatorApp01
         private System.Windows.Forms.Button multipleButton;
         private System.Windows.Forms.Button divideButton;
         private System.Windows.Forms.Button equalButton;
+        private System.Windows.Forms.Button leftBracket;
+        private System.Windows.Forms.Button rightBracket;
     }
 }
 

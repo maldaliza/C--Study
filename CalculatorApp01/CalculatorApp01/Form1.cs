@@ -77,6 +77,18 @@ namespace CalculatorApp01
             textBox1.Text += button8.Text;
         }
 
+        private void leftBracket_Click(object sender, EventArgs e)
+        {
+            Button leftBracket = (Button)sender;
+            textBox1.Text += leftBracket.Text;
+        }
+
+        private void rightBracket_Click(object sender, EventArgs e)
+        {
+            Button rightBracket = (Button)sender;
+            textBox1.Text += rightBracket.Text;
+        }
+
         private void clearButton_Click(object sender, EventArgs e)
         {
             Button clearButton = (Button)sender;
@@ -85,7 +97,13 @@ namespace CalculatorApp01
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text.Substring(0, textBox1.Text.Length - 1);
+            if (textBox1.Text.Equals(""))
+            {
+                textBox1.Text = "";
+            } else
+            {
+                textBox1.Text = textBox1.Text.Substring(0, textBox1.Text.Length - 1);
+            }
         }
 
         private void plusButton_Click(object sender, EventArgs e)
@@ -113,6 +131,16 @@ namespace CalculatorApp01
 
         private void equalButton_Click(object sender, EventArgs e)
         {
+            char[] delimiter = { '+', '-', '*', '/' };
+            
+            string[] strSplit = EquationSpliter(textBox1.Text, delimiter, 0);
+            double result = 0;
+
+            result = ArrayCalculator(strSplit, '+');
+
+            textBox1.Text += Environment.NewLine + Convert.ToString(result);
+
+            /*
             string[] plusSplit = textBox1.Text.Split('+');
             double result = 0;
             
@@ -167,6 +195,73 @@ namespace CalculatorApp01
                 result += Convert.ToDouble(plusSplit[i]);
             }
             textBox1.Text += Environment.NewLine + Convert.ToString(result);
+            */
+        }
+
+        /*
+         * 식의 구성요소를 계산해주는 함수
+         */
+        private double ArrayCalculator(string[] expression, char delimiter)
+        {
+            double result = 0;
+
+            for (int i=0; i<expression.Length; i++)
+            {
+                if (i == 0)
+                {
+                    result = Convert.ToDouble(expression[i]);       // 첫번째 피연산자는 그대로 담는다.
+                } else
+                {
+                    switch (delimiter)
+                    {
+                        case '+':
+                            result += Convert.ToDouble(expression[i]);
+                            break;
+                        case '-':
+                            result -= Convert.ToDouble(expression[i]);
+                            break;
+                        case '*':
+                            result *= Convert.ToDouble(expression[i]);
+                            break;
+                        case '/':
+                            result /= Convert.ToDouble(expression[i]);
+                            break;
+                    }
+                }
+            }
+            return result;
+        }
+
+        /*
+         * 주어진 식으로부터 배열을 만드는 함수
+         */
+        private string[] EquationSpliter(string equation, char[] delimiter, int delimiterCount)
+        {
+            int delimiterCountTemp = delimiterCount;
+            int delimiterLength = delimiter.Length;
+            string[] strSplit = equation.Split(delimiter[delimiterCount]);
+            string[] strSubSplit;
+            bool splitIsNum = false;
+
+            for (int i=0; i<strSplit.Length; i++)
+            {
+                double splitNum = 0;
+                splitIsNum = double.TryParse(strSplit[i], out splitNum);
+                if (!splitIsNum)
+                {
+                    if (delimiterCountTemp < delimiterLength)
+                    {
+                        delimiterCountTemp++;
+                    }
+                    strSubSplit = EquationSpliter(strSplit[i], delimiter, delimiterCountTemp);
+                    splitNum = ArrayCalculator(strSubSplit, delimiter[delimiterCountTemp]);
+                }
+
+                delimiterCountTemp = delimiterCount;
+                strSplit[i] = Convert.ToString(splitNum);
+            }
+
+            return strSplit;
         }
     }
 }
