@@ -336,6 +336,7 @@ namespace CalculatorApp01
             this.minusButton.TabIndex = 1;
             this.minusButton.Text = "-";
             this.minusButton.UseVisualStyleBackColor = true;
+            this.minusButton.Click += new System.EventHandler(this.minusButton_Click);
             // 
             // multipleButton
             // 
@@ -348,6 +349,7 @@ namespace CalculatorApp01
             this.multipleButton.TabIndex = 2;
             this.multipleButton.Text = "*";
             this.multipleButton.UseVisualStyleBackColor = true;
+            this.multipleButton.Click += new System.EventHandler(this.multipleButton_Click);
             // 
             // divideButton
             // 
@@ -360,6 +362,7 @@ namespace CalculatorApp01
             this.divideButton.TabIndex = 3;
             this.divideButton.Text = "/";
             this.divideButton.UseVisualStyleBackColor = true;
+            this.divideButton.Click += new System.EventHandler(this.divideButton_Click);
             // 
             // equalButton
             // 

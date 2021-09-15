@@ -94,18 +94,79 @@ namespace CalculatorApp01
             textBox1.Text += plusButton.Text;
         }
 
+        private void minusButton_Click(object sender, EventArgs e)
+        {
+            Button minusButton = (Button)sender;
+            textBox1.Text += minusButton.Text;
+        }
+        private void multipleButton_Click(object sender, EventArgs e)
+        {
+            Button multipleButton = (Button)sender;
+            textBox1.Text += multipleButton.Text;
+        }
+
+        private void divideButton_Click(object sender, EventArgs e)
+        {
+            Button divideButton = (Button)sender;
+            textBox1.Text += divideButton.Text;
+        }
+
         private void equalButton_Click(object sender, EventArgs e)
         {
             string[] plusSplit = textBox1.Text.Split('+');
             double result = 0;
-            for (int i = 0; i < plusSplit.Length; i++)
+            
+            for (int i=0; i<plusSplit.Length; i++)
             {
+                string[] minusSplit = plusSplit[i].Split('-');
+                double minusSplitResult = 0;
+                
+                for (int j=0; j<minusSplit.Length; j++)
+                {
+                    string[] multiSplit = minusSplit[j].Split('*');
+                    double multiSplitResult = 0;
+                    
+                    for (int k=0; k<multiSplit.Length; k++)
+                    {
+                        string[] divSplit = multiSplit[k].Split('/');
+                        double divSplitResult = 0;
+
+                        for (int l=0; l<divSplit.Length; l++)
+                        {
+                            if (l==0)
+                            {
+                                divSplitResult += Convert.ToDouble(divSplit[l]);
+                            } else
+                            {
+                                divSplitResult /= Convert.ToDouble(divSplit[l]);
+                            }
+                        }
+
+                        multiSplit[k] = Convert.ToString(divSplitResult);
+                        if (k==0)
+                        {
+                            multiSplitResult += Convert.ToDouble(multiSplit[k]);
+                        } else
+                        {
+                            multiSplitResult *= Convert.ToDouble(multiSplit[k]);
+                        }
+                    }
+
+                    minusSplit[j] = Convert.ToString(multiSplitResult);
+                    if (j==0)
+                    {
+                        minusSplitResult += Convert.ToDouble(minusSplit[j]);
+                    } else
+                    {
+                        minusSplitResult -= Convert.ToDouble(minusSplit[j]);
+                    }
+                }
+
+                plusSplit[i] = Convert.ToString(minusSplitResult);
+
                 result += Convert.ToDouble(plusSplit[i]);
             }
             textBox1.Text += Environment.NewLine + Convert.ToString(result);
-            /*
-             * 사칙연산에 맞춰 케이스 분류해야함!
-             */
         }
     }
 }
