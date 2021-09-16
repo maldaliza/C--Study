@@ -1,0 +1,10 @@
+C:\Users\USER\source\repos\C#-Study\PagingExercise01\PagingExercise01\bin\Debug\DataGridViewExercise.exe.config
+C:\Users\USER\source\repos\C#-Study\PagingExercise01\PagingExercise01\bin\Debug\DataGridViewExercise.exe
+C:\Users\USER\source\repos\C#-Study\PagingExercise01\PagingExercise01\bin\Debug\DataGridViewExercise.pdb
+C:\Users\USER\source\repos\C#-Study\PagingExercise01\PagingExercise01\obj\Debug\DataGridViewExercise.csproj.AssemblyReference.cache
+C:\Users\USER\source\repos\C#-Study\PagingExercise01\PagingExercise01\obj\Debug\DataGridViewExercise.Properties.Resources.resources
+C:\Users\USER\source\repos\C#-Study\PagingExercise01\PagingExercise01\obj\Debug\DataGridViewExercise.csproj.GenerateResource.cache
+C:\Users\USER\source\repos\C#-Study\PagingExercise01\PagingExercise01\obj\Debug\DataGridViewExercise.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\C#-Study\PagingExercise01\PagingExercise01\obj\Debug\DataGridViewExercise.exe
+C:\Users\USER\source\repos\C#-Study\PagingExercise01\PagingExercise01\obj\Debug\DataGridViewExercise.pdb
+C:\Users\USER\source\repos\C#-Study\PagingExercise01\PagingExercise01\obj\Debug\DataGridViewExercise.Form1.resources
