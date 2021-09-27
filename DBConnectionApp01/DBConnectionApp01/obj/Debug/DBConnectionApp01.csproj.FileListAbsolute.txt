@@ -31,3 +31,4 @@ C:\Users\USER\source\repos\C#-Study\DBConnectionApp01\DBConnectionApp01\obj\Debu
 C:\Users\USER\source\repos\C#-Study\DBConnectionApp01\DBConnectionApp01\obj\Debug\DBConnectionApp01.csproj.CopyComplete
 C:\Users\USER\source\repos\C#-Study\DBConnectionApp01\DBConnectionApp01\obj\Debug\DBConnectionApp01.exe
 C:\Users\USER\source\repos\C#-Study\DBConnectionApp01\DBConnectionApp01\obj\Debug\DBConnectionApp01.pdb
+C:\Users\USER\source\repos\C#-Study\DBConnectionApp01\DBConnectionApp01\obj\Debug\DBConnectionApp01.SearchForm.resources

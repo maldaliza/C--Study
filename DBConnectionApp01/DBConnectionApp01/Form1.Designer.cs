@@ -40,9 +40,8 @@ namespace DBConnectionApp01
             this.nameLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.buttonPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.deleteButton = new System.Windows.Forms.Button();
-            this.updateButton = new System.Windows.Forms.Button();
             this.insertButton = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
             this.totalDivision.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.topPanel.SuspendLayout();
@@ -83,7 +82,6 @@ namespace DBConnectionApp01
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(384, 276);
             this.dataGridView.TabIndex = 0;
-            this.dataGridView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridView_KeyUp);
             // 
             // topPanel
             // 
@@ -202,8 +200,7 @@ namespace DBConnectionApp01
             this.buttonPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.buttonPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.buttonPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.buttonPanel.Controls.Add(this.deleteButton, 0, 0);
-            this.buttonPanel.Controls.Add(this.updateButton, 0, 0);
+            this.buttonPanel.Controls.Add(this.searchButton, 0, 0);
             this.buttonPanel.Controls.Add(this.insertButton, 0, 0);
             this.buttonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonPanel.Location = new System.Drawing.Point(0, 103);
@@ -213,30 +210,6 @@ namespace DBConnectionApp01
             this.buttonPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.buttonPanel.Size = new System.Drawing.Size(384, 35);
             this.buttonPanel.TabIndex = 1;
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.BackColor = System.Drawing.SystemColors.Control;
-            this.deleteButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.deleteButton.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.deleteButton.Location = new System.Drawing.Point(129, 3);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(57, 29);
-            this.deleteButton.TabIndex = 2;
-            this.deleteButton.Text = "삭제";
-            this.deleteButton.UseVisualStyleBackColor = false;
-            // 
-            // updateButton
-            // 
-            this.updateButton.BackColor = System.Drawing.SystemColors.Control;
-            this.updateButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.updateButton.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.updateButton.Location = new System.Drawing.Point(66, 3);
-            this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(57, 29);
-            this.updateButton.TabIndex = 1;
-            this.updateButton.Text = "수정";
-            this.updateButton.UseVisualStyleBackColor = false;
             // 
             // insertButton
             // 
@@ -250,6 +223,19 @@ namespace DBConnectionApp01
             this.insertButton.Text = "추가";
             this.insertButton.UseVisualStyleBackColor = false;
             this.insertButton.Click += new System.EventHandler(this.insertButton_Click);
+            // 
+            // searchButton
+            // 
+            this.searchButton.BackColor = System.Drawing.SystemColors.Control;
+            this.searchButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchButton.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.searchButton.Location = new System.Drawing.Point(66, 3);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(57, 29);
+            this.searchButton.TabIndex = 1;
+            this.searchButton.Text = "검색";
+            this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // Form1
             // 
@@ -283,8 +269,7 @@ namespace DBConnectionApp01
         private System.Windows.Forms.TextBox addressTextBox;
         private System.Windows.Forms.TableLayoutPanel buttonPanel;
         private System.Windows.Forms.Button insertButton;
-        private System.Windows.Forms.Button deleteButton;
-        private System.Windows.Forms.Button updateButton;
+        private System.Windows.Forms.Button searchButton;
     }
 }
 
