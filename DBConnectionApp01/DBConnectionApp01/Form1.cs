@@ -30,6 +30,19 @@ namespace DBConnectionApp01
             db.ConnDB(table);
 
             dataGridView.DataSource = table;
+
+            // 마지막 행 포커싱
+            dataGridView.CurrentCell = dataGridView.Rows[dataGridView.RowCount - 1].Cells[0];
+        }
+
+        private void insertButton_Click(object sender, EventArgs e)
+        {
+            db.InsertDB(table, nameTextBox.Text, phoneNumberTextBox.Text, addressTextBox.Text);
+        }
+
+        private void dataGridView_KeyUp(object sender, KeyEventArgs e)
+        {
+            
         }
     }
 }
