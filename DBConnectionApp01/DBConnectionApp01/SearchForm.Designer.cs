@@ -32,8 +32,8 @@ namespace DBConnectionApp01
             this.totalDivision = new System.Windows.Forms.TableLayoutPanel();
             this.topPanel = new System.Windows.Forms.TableLayoutPanel();
             this.inputDataPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.phoneNumberLabel = new System.Windows.Forms.Label();
             this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
+            this.phoneNumberLabel = new System.Windows.Forms.Label();
             this.buttonPanel = new System.Windows.Forms.TableLayoutPanel();
             this.searchButton = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
@@ -94,6 +94,16 @@ namespace DBConnectionApp01
             this.inputDataPanel.Size = new System.Drawing.Size(384, 100);
             this.inputDataPanel.TabIndex = 0;
             // 
+            // phoneNumberTextBox
+            // 
+            this.phoneNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.phoneNumberTextBox.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.phoneNumberTextBox.Location = new System.Drawing.Point(153, 40);
+            this.phoneNumberTextBox.Margin = new System.Windows.Forms.Padding(0, 40, 40, 0);
+            this.phoneNumberTextBox.Name = "phoneNumberTextBox";
+            this.phoneNumberTextBox.Size = new System.Drawing.Size(191, 23);
+            this.phoneNumberTextBox.TabIndex = 5;
+            // 
             // phoneNumberLabel
             // 
             this.phoneNumberLabel.AutoSize = true;
@@ -106,16 +116,6 @@ namespace DBConnectionApp01
             this.phoneNumberLabel.TabIndex = 0;
             this.phoneNumberLabel.Text = "전화번호";
             this.phoneNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // phoneNumberTextBox
-            // 
-            this.phoneNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.phoneNumberTextBox.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.phoneNumberTextBox.Location = new System.Drawing.Point(153, 40);
-            this.phoneNumberTextBox.Margin = new System.Windows.Forms.Padding(0, 40, 40, 0);
-            this.phoneNumberTextBox.Name = "phoneNumberTextBox";
-            this.phoneNumberTextBox.Size = new System.Drawing.Size(191, 23);
-            this.phoneNumberTextBox.TabIndex = 5;
             // 
             // buttonPanel
             // 
