@@ -108,7 +108,7 @@ namespace DBConnectionApp01
         {
             Button button = sender as Button;
 
-            int offset = (int.Parse(button.Text) - 1) * 10;
+            int offset = (int.Parse(button.Text) - 1) * 10;     // button.Text를 int형으로 형변환 후 offset 값 설정
 
             db.SelectDB(table, offset);
         }
