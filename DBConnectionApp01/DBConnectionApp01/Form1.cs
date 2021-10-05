@@ -17,15 +17,22 @@ namespace DBConnectionApp01
         private static ConnectDB db = new ConnectDB();
         
         DataTable table = new DataTable();
-
-        // DB에서 테이블 전체 total 조회
-        Int64 count = db.CountDB();
         
         // 행의 개수를 이용하여 동적인 버튼(Button) 생성
-        private void CreateDynamicButton()
+        private void CreateDynamicButton(Int64 count)
         {
-            int TotalPage = (int)count / 10 + 1;
-            int offset = (int)count / 10;              // 0, 10, 20, ...
+            // pagingPanel 초기화
+            pagingPanel.Controls.Clear();
+
+            int TotalPage = 0;
+            if ((int)count % 10 == 0)
+            {
+                TotalPage = (int)count / 10;
+            } 
+            else
+            {
+                TotalPage = (int)count / 10 + 1;
+            }
 
             Control[] pageButton = new Control[7];
             FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
@@ -68,13 +75,11 @@ namespace DBConnectionApp01
             dataGridView.DataSource = table;
 
             // 행의 개수
+            Int64 count = db.CountDB();
             totalTextBox.Text = Convert.ToString(count);
 
             // 행의 개수를 이용하여 동적인 버튼(Button) 생성
-            CreateDynamicButton();
-
-            // 마지막 행 포커싱
-            //dataGridView.CurrentCell = dataGridView.Rows[dataGridView.RowCount - 1].Cells[0];
+            CreateDynamicButton(count);
         }
 
 
@@ -85,7 +90,10 @@ namespace DBConnectionApp01
         {
             int offset = 0;
 
-            db.InsertDB(table, offset, nameTextBox.Text, phoneNumberTextBox.Text, addressTextBox.Text);
+            if (nameTextBox.Text != "" || phoneNumberTextBox.Text != "" || addressTextBox.Text != "")
+            {
+                db.InsertDB(table, offset, nameTextBox.Text, phoneNumberTextBox.Text, addressTextBox.Text);
+            }
 
             // 텍스트박스 초기화
             nameTextBox.Text = "";
@@ -93,11 +101,10 @@ namespace DBConnectionApp01
             addressTextBox.Text = "";
 
             // 행의 개수
-            Int64 newCount = db.CountDB();
-            totalTextBox.Text = Convert.ToString(newCount);
+            Int64 count = db.CountDB();
+            totalTextBox.Text = Convert.ToString(count);
 
-            // 마지막 행 포커싱
-            //dataGridView.CurrentCell = dataGridView.Rows[dataGridView.RowCount - 1].Cells[0];
+            CreateDynamicButton(count);
         }
 
 
@@ -121,6 +128,67 @@ namespace DBConnectionApp01
         {
             SearchForm searchForm = new SearchForm();
             searchForm.Show();
+        }
+
+
+        /*
+         * dataGridView에서 셀 선택
+         */
+        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow selectedRow = dataGridView.SelectedRows[0];
+
+            nameTextBox.Text = selectedRow.Cells[1].Value.ToString();
+            phoneNumberTextBox.Text = selectedRow.Cells[2].Value.ToString();
+            addressTextBox.Text = selectedRow.Cells[3].Value.ToString();
+
+            updateButton.Click += new System.EventHandler(updateButton_Click);
+            deleteButton.Click += new System.EventHandler(deleteButton_Click);
+        }
+
+
+        /*
+         * 데이터 수정
+         */
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = dataGridView.SelectedRows[0];
+            int id = int.Parse(selectedRow.Cells[0].Value.ToString());
+
+            if (nameTextBox.Text != "" || phoneNumberTextBox.Text != "" || addressTextBox.Text != "")
+            {
+                db.UpdateDB(id, nameTextBox.Text, phoneNumberTextBox.Text, addressTextBox.Text);
+            }
+            db.SelectDB(table, 0);
+
+            nameTextBox.Text = "";
+            phoneNumberTextBox.Text = "";
+            addressTextBox.Text = "";
+        }
+
+
+        /*
+         * 데이터 삭제
+         */
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = dataGridView.SelectedRows[0];
+            int id = int.Parse(selectedRow.Cells[0].Value.ToString());
+
+            if (nameTextBox.Text != "" || phoneNumberTextBox.Text != "" || addressTextBox.Text != "")
+            {
+                db.DeleteDB(id);
+                db.SelectDB(table, 0);
+            }
+
+            nameTextBox.Text = "";
+            phoneNumberTextBox.Text = "";
+            addressTextBox.Text = "";
+
+            Int64 count = db.CountDB();
+            totalTextBox.Text = Convert.ToString(count);
+
+            CreateDynamicButton(count);
         }
     }
 }

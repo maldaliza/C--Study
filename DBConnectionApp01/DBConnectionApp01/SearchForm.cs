@@ -40,35 +40,13 @@ namespace DBConnectionApp01
 
             CreateDynamicButton(count);
 
-            /*int TotalPage = (int)count / 10 + 1;
-
-            Control[] pageButton = new Control[7];
-            FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
-
-            for (int i=0; i<TotalPage; i++)
-            {
-                pageButton[i] = new Button();
-                pageButton[i].Name = "pageButton" + (i + 1).ToString();
-                pageButton[i].Size = new Size(40, 40);
-                pageButton[i].Text = (i + 1).ToString();
-                pageButton[i].Font = new System.Drawing.Font("맑은 고딕", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-
-                pageButton[i].Width = 40;
-                pageButton[i].Height = 35;
-                pageButton[i].Margin = new Padding(10, 3, 3, 3);
-
-                pageButton[i].Click += new EventHandler(pageButton_Click);
-
-                flowLayoutPanel.Controls.Add(pageButton[i]);
-            }
-
-            pagingPanel.Controls.Add(flowLayoutPanel);
-            flowLayoutPanel.Dock = DockStyle.Fill;*/
-
             //phoneNumberTextBox.Text = "";
         }
 
 
+        /*
+         * 동적인 버튼 설계
+         */
         private void CreateDynamicButton(Int64 count)
         {
             int TotalPage = (int)count / 10 + 1;
@@ -97,6 +75,10 @@ namespace DBConnectionApp01
             flowLayoutPanel.Dock = DockStyle.Fill;
         }
 
+
+        /*
+         * 버튼 클릭 시 이벤트
+         */
         private void pageButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
