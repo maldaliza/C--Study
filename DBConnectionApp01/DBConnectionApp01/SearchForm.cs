@@ -16,6 +16,8 @@ namespace DBConnectionApp01
 
         DataTable table = new DataTable();
 
+        int offset = 0;
+
         public SearchForm()
         {
             InitializeComponent();
@@ -33,59 +35,117 @@ namespace DBConnectionApp01
          */
         private void searchButton_Click(object sender, EventArgs e)
         {
-            db.SearchDB(table, phoneNumberTextBox.Text, 0);
+            offset = 0;     // 오프셋 초기화
+            string phoneNumber = phoneNumberTextBox.Text;
+            db.SearchDB(table, phoneNumber, offset);
             
-            Int64 count = db.SearchDataCount(phoneNumberTextBox.Text);    // 검색 버튼 클릭 시, 검색 Total 조회
-            totalTextBox.Text = Convert.ToString(count);
+            Int64 totalCount = db.SearchDataCount(phoneNumber);    // 텍스트박스 값으로 DB에서 Total 조회
+            totalTextBox.Text = Convert.ToString(totalCount);
 
-            CreateDynamicButton(count);
+            int totalPageCount = (int)Math.Ceiling((double)totalCount / 30); // 전체 페이지 갯수
+            if (totalPageCount == 0)
+            {
+                totalPageCount = 1;
+            }
+            int currentPage = offset / 30 + 1;                               // 현재 페이지
 
-            //phoneNumberTextBox.Text = "";
+            pageNumber.Text = "Page " + currentPage.ToString() + "/" + totalPageCount.ToString();
         }
 
-
         /*
-         * 동적인 버튼 설계
+         * 다음 페이지 이동 버튼
          */
-        private void CreateDynamicButton(Int64 count)
+        private void nextPageLabel_Click(object sender, EventArgs e)
         {
-            int TotalPage = (int)count / 10 + 1;
+            string phoneNumber = phoneNumberTextBox.Text;
+            Int64 totalCount = db.SearchDataCount(phoneNumber);
 
-            Control[] pageButton = new Control[7];
-            FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
+            // 전체 페이지 갯수
+            int totalPageCount = (int)Math.Ceiling((double)totalCount / 30);
 
-            for (int i = 0; i < TotalPage; i++)
+            if ((offset / 30) + 1 < totalPageCount)
             {
-                pageButton[i] = new Button();
-                pageButton[i].Name = "pageButton" + (i + 1).ToString();
-                pageButton[i].Size = new Size(40, 40);
-                pageButton[i].Text = (i + 1).ToString();
-                pageButton[i].Font = new System.Drawing.Font("맑은 고딕", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-
-                pageButton[i].Width = 40;
-                pageButton[i].Height = 35;
-                pageButton[i].Margin = new Padding(10, 3, 3, 3);
-
-                pageButton[i].Click += new EventHandler(pageButton_Click);
-
-                flowLayoutPanel.Controls.Add(pageButton[i]);
+                offset += 30;
             }
 
-            pagingPanel.Controls.Add(flowLayoutPanel);
-            flowLayoutPanel.Dock = DockStyle.Fill;
+            // 현재 페이지
+            int currentPage = offset / 30 + 1;
+            if (currentPage <= totalPageCount)
+            {
+                db.SearchDB(table, phoneNumber, offset);
+            }
+
+            pageNumber.Text = "Page " + currentPage.ToString() + "/" + totalPageCount.ToString();
         }
 
+        /*
+         * 마지막 페이지 이동 버튼
+         */
+        private void lastPageLabel_Click(object sender, EventArgs e)
+        {
+            string phoneNumber = phoneNumberTextBox.Text;
+            Int64 totalCount = db.SearchDataCount(phoneNumber);
+
+            // 전체 페이지 갯수
+            int totalPageCount = (int)Math.Ceiling((double)totalCount / 30);
+
+            // 현재 페이지
+            int currentPage = totalPageCount;
+
+            // 오프셋
+            offset = (totalPageCount - 1) * 30;
+
+            db.SearchDB(table, phoneNumber, offset);
+
+            pageNumber.Text = "Page " + currentPage.ToString() + "/" + totalPageCount.ToString();
+        }
 
         /*
-         * 버튼 클릭 시 이벤트
+         * 이전 페이지 이동 버튼
          */
-        private void pageButton_Click(object sender, EventArgs e)
+        private void prevPageLabel_Click(object sender, EventArgs e)
         {
-            Button button = sender as Button;
+            string phoneNumber = phoneNumberTextBox.Text;
+            Int64 totalCount = db.SearchDataCount(phoneNumber);
 
-            int offset = (int.Parse(button.Text) - 1) * 10;
+            // 전체 페이지 갯수
+            int totalPageCount = (int)Math.Ceiling((double)totalCount / 30);
 
-            db.SearchDB(table, phoneNumberTextBox.Text, offset);
+            if (offset > 0)
+            {
+                offset -= 30;
+            }
+
+            // 현재 페이지
+            int currentPage = offset / 30 + 1;
+            if (currentPage <= totalPageCount)
+            {
+                db.SearchDB(table, phoneNumber, offset);
+            }
+
+            pageNumber.Text = "Page " + currentPage.ToString() + "/" + totalPageCount.ToString();
+        }
+
+        /*
+         * 처음 페이지 이동 버튼
+         */
+        private void firstPageLabel_Click(object sender, EventArgs e)
+        {
+            string phoneNumber = phoneNumberTextBox.Text;
+            Int64 totalCount = db.SearchDataCount(phoneNumber);
+
+            // 전체 페이지 갯수
+            int totalPageCount = (int)Math.Ceiling((double)totalCount / 30);
+
+            // 현재 페이지
+            int currentPage = 1;
+
+            // 오프셋
+            offset = 0;
+
+            db.SearchDB(table, phoneNumber, offset);
+
+            pageNumber.Text = "Page " + currentPage.ToString() + "/" + totalPageCount.ToString();
         }
     }
 }

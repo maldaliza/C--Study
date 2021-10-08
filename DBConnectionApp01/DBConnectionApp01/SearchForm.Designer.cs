@@ -39,9 +39,14 @@ namespace DBConnectionApp01
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.bottomPanel = new System.Windows.Forms.TableLayoutPanel();
             this.totalPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.totalLabel = new System.Windows.Forms.Label();
             this.totalTextBox = new System.Windows.Forms.TextBox();
-            this.pagingPanel = new System.Windows.Forms.Panel();
+            this.totalLabel = new System.Windows.Forms.Label();
+            this.pagingPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.lastPageLabel = new System.Windows.Forms.Label();
+            this.nextPageLabel = new System.Windows.Forms.Label();
+            this.prevPageLabel = new System.Windows.Forms.Label();
+            this.firstPageLabel = new System.Windows.Forms.Label();
+            this.pageNumber = new System.Windows.Forms.Label();
             this.totalDivision.SuspendLayout();
             this.topPanel.SuspendLayout();
             this.inputDataPanel.SuspendLayout();
@@ -49,6 +54,7 @@ namespace DBConnectionApp01
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.bottomPanel.SuspendLayout();
             this.totalPanel.SuspendLayout();
+            this.pagingPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // totalDivision
@@ -207,6 +213,18 @@ namespace DBConnectionApp01
             this.totalPanel.Size = new System.Drawing.Size(146, 43);
             this.totalPanel.TabIndex = 0;
             // 
+            // totalTextBox
+            // 
+            this.totalTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.totalTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.totalTextBox.Location = new System.Drawing.Point(58, 8);
+            this.totalTextBox.Margin = new System.Windows.Forms.Padding(0, 8, 20, 0);
+            this.totalTextBox.Name = "totalTextBox";
+            this.totalTextBox.ReadOnly = true;
+            this.totalTextBox.Size = new System.Drawing.Size(68, 25);
+            this.totalTextBox.TabIndex = 2;
+            this.totalTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // totalLabel
             // 
             this.totalLabel.AutoSize = true;
@@ -220,26 +238,91 @@ namespace DBConnectionApp01
             this.totalLabel.Text = "TOTAL";
             this.totalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // totalTextBox
-            // 
-            this.totalTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.totalTextBox.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.totalTextBox.Location = new System.Drawing.Point(58, 8);
-            this.totalTextBox.Margin = new System.Windows.Forms.Padding(0, 8, 20, 0);
-            this.totalTextBox.Name = "totalTextBox";
-            this.totalTextBox.ReadOnly = true;
-            this.totalTextBox.Size = new System.Drawing.Size(68, 25);
-            this.totalTextBox.TabIndex = 2;
-            this.totalTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // pagingPanel
             // 
+            this.pagingPanel.ColumnCount = 5;
+            this.pagingPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.pagingPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
+            this.pagingPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.pagingPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
+            this.pagingPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.pagingPanel.Controls.Add(this.lastPageLabel, 4, 0);
+            this.pagingPanel.Controls.Add(this.nextPageLabel, 3, 0);
+            this.pagingPanel.Controls.Add(this.prevPageLabel, 1, 0);
+            this.pagingPanel.Controls.Add(this.firstPageLabel, 0, 0);
+            this.pagingPanel.Controls.Add(this.pageNumber, 2, 0);
             this.pagingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pagingPanel.Location = new System.Drawing.Point(0, 0);
             this.pagingPanel.Margin = new System.Windows.Forms.Padding(0);
             this.pagingPanel.Name = "pagingPanel";
+            this.pagingPanel.RowCount = 1;
+            this.pagingPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pagingPanel.Size = new System.Drawing.Size(338, 43);
             this.pagingPanel.TabIndex = 1;
+            // 
+            // lastPageLabel
+            // 
+            this.lastPageLabel.AutoSize = true;
+            this.lastPageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lastPageLabel.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lastPageLabel.Location = new System.Drawing.Point(283, 0);
+            this.lastPageLabel.Name = "lastPageLabel";
+            this.lastPageLabel.Size = new System.Drawing.Size(52, 43);
+            this.lastPageLabel.TabIndex = 4;
+            this.lastPageLabel.Text = ">>";
+            this.lastPageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lastPageLabel.Click += new System.EventHandler(this.lastPageLabel_Click);
+            // 
+            // nextPageLabel
+            // 
+            this.nextPageLabel.AutoSize = true;
+            this.nextPageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nextPageLabel.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.nextPageLabel.Location = new System.Drawing.Point(227, 0);
+            this.nextPageLabel.Name = "nextPageLabel";
+            this.nextPageLabel.Size = new System.Drawing.Size(50, 43);
+            this.nextPageLabel.TabIndex = 3;
+            this.nextPageLabel.Text = ">";
+            this.nextPageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.nextPageLabel.Click += new System.EventHandler(this.nextPageLabel_Click);
+            // 
+            // prevPageLabel
+            // 
+            this.prevPageLabel.AutoSize = true;
+            this.prevPageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.prevPageLabel.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.prevPageLabel.Location = new System.Drawing.Point(59, 0);
+            this.prevPageLabel.Name = "prevPageLabel";
+            this.prevPageLabel.Size = new System.Drawing.Size(50, 43);
+            this.prevPageLabel.TabIndex = 2;
+            this.prevPageLabel.Text = "<";
+            this.prevPageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.prevPageLabel.Click += new System.EventHandler(this.prevPageLabel_Click);
+            // 
+            // firstPageLabel
+            // 
+            this.firstPageLabel.AutoSize = true;
+            this.firstPageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.firstPageLabel.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.firstPageLabel.Location = new System.Drawing.Point(3, 0);
+            this.firstPageLabel.Name = "firstPageLabel";
+            this.firstPageLabel.Size = new System.Drawing.Size(50, 43);
+            this.firstPageLabel.TabIndex = 1;
+            this.firstPageLabel.Text = "<<";
+            this.firstPageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.firstPageLabel.Click += new System.EventHandler(this.firstPageLabel_Click);
+            // 
+            // pageNumber
+            // 
+            this.pageNumber.AutoSize = true;
+            this.pageNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pageNumber.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.pageNumber.Location = new System.Drawing.Point(115, 0);
+            this.pageNumber.Name = "pageNumber";
+            this.pageNumber.Size = new System.Drawing.Size(106, 43);
+            this.pageNumber.TabIndex = 0;
+            this.pageNumber.Text = "Page 1/1";
+            this.pageNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SearchForm
             // 
@@ -258,6 +341,8 @@ namespace DBConnectionApp01
             this.bottomPanel.ResumeLayout(false);
             this.totalPanel.ResumeLayout(false);
             this.totalPanel.PerformLayout();
+            this.pagingPanel.ResumeLayout(false);
+            this.pagingPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -276,6 +361,11 @@ namespace DBConnectionApp01
         private System.Windows.Forms.TableLayoutPanel totalPanel;
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.TextBox totalTextBox;
-        private System.Windows.Forms.Panel pagingPanel;
+        private System.Windows.Forms.TableLayoutPanel pagingPanel;
+        private System.Windows.Forms.Label pageNumber;
+        private System.Windows.Forms.Label lastPageLabel;
+        private System.Windows.Forms.Label nextPageLabel;
+        private System.Windows.Forms.Label prevPageLabel;
+        private System.Windows.Forms.Label firstPageLabel;
     }
 }
