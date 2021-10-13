@@ -1,0 +1,10 @@
+C:\Users\USER\source\repos\C#-Study\ThreadExercise02\ThreadExercise02\bin\Debug\ThreadExercise02.exe.config
+C:\Users\USER\source\repos\C#-Study\ThreadExercise02\ThreadExercise02\bin\Debug\ThreadExercise02.exe
+C:\Users\USER\source\repos\C#-Study\ThreadExercise02\ThreadExercise02\bin\Debug\ThreadExercise02.pdb
+C:\Users\USER\source\repos\C#-Study\ThreadExercise02\ThreadExercise02\obj\Debug\ThreadExercise02.csproj.AssemblyReference.cache
+C:\Users\USER\source\repos\C#-Study\ThreadExercise02\ThreadExercise02\obj\Debug\ThreadExercise02.Form1.resources
+C:\Users\USER\source\repos\C#-Study\ThreadExercise02\ThreadExercise02\obj\Debug\ThreadExercise02.Properties.Resources.resources
+C:\Users\USER\source\repos\C#-Study\ThreadExercise02\ThreadExercise02\obj\Debug\ThreadExercise02.csproj.GenerateResource.cache
+C:\Users\USER\source\repos\C#-Study\ThreadExercise02\ThreadExercise02\obj\Debug\ThreadExercise02.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\C#-Study\ThreadExercise02\ThreadExercise02\obj\Debug\ThreadExercise02.exe
+C:\Users\USER\source\repos\C#-Study\ThreadExercise02\ThreadExercise02\obj\Debug\ThreadExercise02.pdb
