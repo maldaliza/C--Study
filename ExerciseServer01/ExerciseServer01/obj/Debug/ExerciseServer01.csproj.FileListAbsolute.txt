@@ -1,0 +1,14 @@
+C:\Users\USER\source\repos\C#-Study\ExerciseServer01\ExerciseServer01\bin\Debug\ExerciseServer01.exe.config
+C:\Users\USER\source\repos\C#-Study\ExerciseServer01\ExerciseServer01\bin\Debug\ExerciseServer01.exe
+C:\Users\USER\source\repos\C#-Study\ExerciseServer01\ExerciseServer01\bin\Debug\ExerciseServer01.pdb
+C:\Users\USER\source\repos\C#-Study\ExerciseServer01\ExerciseServer01\bin\Debug\MetroFramework.Design.dll
+C:\Users\USER\source\repos\C#-Study\ExerciseServer01\ExerciseServer01\bin\Debug\MetroFramework.dll
+C:\Users\USER\source\repos\C#-Study\ExerciseServer01\ExerciseServer01\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\USER\source\repos\C#-Study\ExerciseServer01\ExerciseServer01\obj\Debug\ExerciseServer01.csproj.AssemblyReference.cache
+C:\Users\USER\source\repos\C#-Study\ExerciseServer01\ExerciseServer01\obj\Debug\ExerciseServer01.Properties.Resources.resources
+C:\Users\USER\source\repos\C#-Study\ExerciseServer01\ExerciseServer01\obj\Debug\ExerciseServer01.Server.resources
+C:\Users\USER\source\repos\C#-Study\ExerciseServer01\ExerciseServer01\obj\Debug\ExerciseServer01.csproj.GenerateResource.cache
+C:\Users\USER\source\repos\C#-Study\ExerciseServer01\ExerciseServer01\obj\Debug\ExerciseServer01.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\C#-Study\ExerciseServer01\ExerciseServer01\obj\Debug\ExerciseServer01.csproj.CopyComplete
+C:\Users\USER\source\repos\C#-Study\ExerciseServer01\ExerciseServer01\obj\Debug\ExerciseServer01.exe
+C:\Users\USER\source\repos\C#-Study\ExerciseServer01\ExerciseServer01\obj\Debug\ExerciseServer01.pdb
